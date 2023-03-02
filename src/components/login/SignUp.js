@@ -11,48 +11,48 @@ function SignUp({users,setUsers}){
     const [rPassword,setRPassword] = useState('');
 
     const navigate = useNavigate();
-    const newId = users[users.length-1]?.id+1;
+    // const newId = users[users.length-1]?.id+1;
 
-    const newUser = {
-        id:newId,
-        username:username,
-        password:password,
-        donations:[]
-    }
+    // const newUser = {
+    //     id:newId,
+    //     username:username,
+    //     password:password,
+    //     donations:[]
+    // }
 
     function cancelClicked(){
         navigate("/login");
     }
 
-    function signClicked(e){
-        e.preventDefault();
-        const newUsers = [...users,newUser]
-        const userFound = users.find(user=>user.username===username);
+    // function signClicked(e){
+    //     e.preventDefault();
+    //     const newUsers = [...users,newUser]
+    //     const userFound = users.find(user=>user.username===username);
 
-        if(userFound){
-            alert('Username already exist')
-        }
-        else if(password!==rPassword){
-            alert('Confirm password inputs!')
-        }
-        else{
-            setUsers(newUsers);
-            navigate('/login')
+    //     if(userFound){
+    //         alert('Username already exist')
+    //     }
+    //     else if(password!==rPassword){
+    //         alert('Confirm password inputs!')
+    //     }
+    //     else{
+    //         setUsers(newUsers);
+    //         navigate('/login')
 
-            fetch(API,{
-                method:'POST',
-                headers:{
-                    'Content-Type': 'application/json',
-                },
-                body:JSON.stringify(newUser)
-            })
-            .then(resp=>resp.json())
-            .then(data=>console.log(data))
-        }
-    }
+    //         fetch(API,{
+    //             method:'POST',
+    //             headers:{
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body:JSON.stringify(newUser)
+    //         })
+    //         .then(resp=>resp.json())
+    //         .then(data=>console.log(data))
+    //     }
+    // }
 
     return(
-        <form onSubmit={(e)=>signClicked(e)} style={{border:"1px solid #ccc"}}>
+        <form /*onSubmit={(e)=>signClicked(e)}*/ style={{border:"1px solid #ccc"}}>
             <div className="container">
                 <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -83,8 +83,8 @@ function SignUp({users,setUsers}){
                 <p>By creating an account you agree to our <a href="#" style={{color:"dodgerblue"}}>Terms & Privacy</a>.</p> */}
 
                 <div className="clearfix">
-                <button type="button" className="cancelbtn" onClick={cancelClicked} >Cancel</button>
-                <button type="submit" className="signupbtn">Sign Up</button>
+                <button type="button" className=".log-cancelbtn" onClick={cancelClicked} >Cancel</button>
+                <button type="submit" className=".log-signupbtn">Sign Up</button>
                 </div>
             </div>
         </form>
