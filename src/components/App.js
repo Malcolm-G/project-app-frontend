@@ -3,6 +3,7 @@ import React,{ useEffect, useState } from 'react';
 import { Route,Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import Login from './login/Login';
+import SignUp from './login/SignUp';
 
 function App() {
   return (
@@ -13,11 +14,11 @@ function App() {
         path="/login"
         element={<Login />}
         />
-        {/* <Route
+        <Route
         path="/signup"
-        /> */}
+        element={<SignUp />}
+        />
       </Routes>
-      <Login />
     </div>
   );
 }
