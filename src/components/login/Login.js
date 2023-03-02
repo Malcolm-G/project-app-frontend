@@ -42,7 +42,7 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
             </div>
 
             <div className="container  d-flex" style={{backgroundColor:"#f1f1f1"}}>
-                {/* <Link type="login-button" className="btn cancelbtn mx-auto" to="/signup" >Register?</Link> */}
+                <Link type="login-button" className="btn cancelbtn mx-auto" to="/signup" >Register?</Link>
                 {/* <span className="psw">Forgot <a href="#">password?</a></span> */}
             </div>
         </form>
