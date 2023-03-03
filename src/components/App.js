@@ -4,12 +4,13 @@ import { Route,Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import Login from './login/Login';
 import SignUp from './login/SignUp';
+import LandingPage from './LandingPage';
 
 function App() {
   return (
     <div className="App">
       <Navbar /*currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}*/ />
-      <Routes>
+      {/* <Routes>
         <Route
         path="/login"
         element={<Login />}
@@ -18,7 +19,8 @@ function App() {
         path="/signup"
         element={<SignUp />}
         />
-      </Routes>
+      </Routes> */}
+      <LandingPage />
     </div>
   );
 }
