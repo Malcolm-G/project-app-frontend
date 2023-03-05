@@ -10,7 +10,7 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
     const [email,setEmail] = useState("");
-
+    const navigate = useNavigate();
     const [user,setUser,API] = useContext(UserContext)
 
     const input = {email:email, password:password}
@@ -24,6 +24,7 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
         .then(resp=>resp.json())
         .then(userData=>{
             setUser(user=>user = userData.data)
+            navigate('/')
             console.log(user)
         })
     }
