@@ -1,7 +1,8 @@
-import React,{ useState } from "react";
+import React,{ useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../../stylesheets/Login.css';
 import image from "../../images/download.png"
+import { UserContext } from "../UserDataProvider";
 // import image from "../../random-acts-kindness-day.png";
 
 function Login({users,setIsLoggedIn,setCurrentUser}){
@@ -10,24 +11,41 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
     const [password,setPassword] = useState("");
     const [email,setEmail] = useState("");
 
+    const [user,setUser,API] = useContext(UserContext)
+
+    const input = {email:email, password:password}
+
+    function loginClicked(e){
+        e.preventDefault()
+        fetch(`${API}/auth/login`,{
+            method:'POST',
+            body:JSON.stringify(input)
+        })
+        .then(resp=>resp.json())
+        .then(userData=>{
+            setUser(user=>user = userData.data)
+            console.log(user)
+        })
+    }
+
     // const navigate = useNavigate();
 
 
     return(
         <form
         className="log-form"
-        // onSubmit={(e)=>loginClicked(e)}
+        onSubmit={(e)=>loginClicked(e)}
          method="#">
             <div className="log-imgcontainer">
                 <img src={image} alt="Avatar" className="log-avatar"/>
             </div>
 
             <div className="container login-container bg-body-tertiary">
-                <label htmlFor="uname"><b>Username</b></label>
+                <label htmlFor="uname"><b>Email</b></label>
                 <input
-                onChange={(e)=>setUsername(e.target.value)}
-                value={username}
-                type="text" placeholder="Enter Username" name="uname" required/>
+                onChange={(e)=>setEmail(e.target.value)}
+                value={email}
+                type="text" placeholder="Enter Email" name="uname" required/>
 
                 <label htmlFor="psw"><b>Password</b></label>
                 <input

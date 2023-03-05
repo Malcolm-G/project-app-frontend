@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Navbar /*currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}*/ />
-      {/* <Routes>
+      <Routes>
         <Route
         path="/login"
         element={<Login />}
@@ -19,8 +19,8 @@ function App() {
         path="/signup"
         element={<SignUp />}
         />
-      </Routes> */}
-      <LandingPage />
+      </Routes>
+      {/* <LandingPage /> */}
     </div>
   );
 }
