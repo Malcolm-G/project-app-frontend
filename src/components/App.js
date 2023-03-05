@@ -9,7 +9,7 @@ import LandingPage from './LandingPage';
 function App() {
   return (
     <div className="App">
-      <Navbar /*currentUser={currentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}*/ />
+      <Navbar />
       <Routes>
         <Route
         path="/login"
@@ -18,6 +18,10 @@ function App() {
         <Route
         path="/signup"
         element={<SignUp />}
+        />
+        <Route
+        path = "/"
+        element={<LandingPage />}
         />
       </Routes>
       {/* <LandingPage /> */}
