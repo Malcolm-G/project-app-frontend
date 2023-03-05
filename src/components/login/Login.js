@@ -41,11 +41,11 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
             </div>
 
             <div className="container login-container bg-body-tertiary">
-                <label htmlFor="uname"><b>Email</b></label>
+                <label htmlFor="email"><b>Email</b></label>
                 <input
                 onChange={(e)=>setEmail(e.target.value)}
                 value={email}
-                type="text" placeholder="Enter Email" name="uname" required/>
+                type="text" placeholder="Enter Email" name="email" required/>
 
                 <label htmlFor="psw"><b>Password</b></label>
                 <input
