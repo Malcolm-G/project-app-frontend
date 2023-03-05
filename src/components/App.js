@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Login from './login/Login';
 import SignUp from './login/SignUp';
 import LandingPage from './LandingPage';
+import MyProjects from './MyProjects';
 
 function App() {
   return (
@@ -20,11 +21,14 @@ function App() {
         element={<SignUp />}
         />
         <Route
-        path = "/"
+        path="/"
         element={<LandingPage />}
         />
+        <Route
+        path="/my-projects"
+        element={<MyProjects/>}
+        />
       </Routes>
-      {/* <LandingPage /> */}
     </div>
   );
 }
