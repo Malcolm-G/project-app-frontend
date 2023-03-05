@@ -29,7 +29,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className={ulClasses}>
                             {user?<li className="nav-item">
-                                <Link className="nav-link mx-5" aria-current="page" to="/my-donations">MY-PROJECTS</Link>
+                                <Link className="nav-link mx-5" aria-current="page" to="/my-projects">MY-PROJECTS</Link>
                             </li>:null}
                         </ul>
                     </div>
