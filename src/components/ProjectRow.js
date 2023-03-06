@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from './UserDataProvider';
 
 function ProjectRow({project,index}) {
 
+    const [user,setUser,API,projects] = useContext(UserContext)
     const [statusClass,setStatusClass] = useState('')
+    const navigate = useNavigate()
 
     useEffect(()=>{
         switch(project.status){
@@ -21,9 +25,11 @@ function ProjectRow({project,index}) {
             default:
                 setStatusClass("badge bg-dark")
         }
-    },[project.status])
+    },[projects])
 
-    
+    function updateProject(){
+        navigate(`/update-project-form/${project.id}`)
+    }
 
     return (
         <tr>
@@ -35,6 +41,14 @@ function ProjectRow({project,index}) {
             <span className={statusClass}>
               {project.status}
             </span>
+          </td>
+          <td>
+            <button
+            onClick={updateProject}
+            className='btn btn-warning btn-sm' >Update</button>
+          </td>
+          <td>
+            <button className='btn btn-danger btn-sm' >Delete</button>
           </td>
         </tr>
     );

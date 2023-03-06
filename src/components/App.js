@@ -6,6 +6,8 @@ import Login from './login/Login';
 import SignUp from './login/SignUp';
 import LandingPage from './LandingPage';
 import MyProjects from './MyProjects';
+import ProjectForm from './ProjectForm';
+import UpdateProjectForm from './UpdateProjectForm';
 
 function App() {
   return (
@@ -21,12 +23,20 @@ function App() {
         element={<SignUp />}
         />
         <Route
-        path="/"
+        exact path="/"
         element={<LandingPage />}
         />
         <Route
         path="/my-projects"
         element={<MyProjects/>}
+        />
+        <Route
+        path="/project-form"
+        element={<ProjectForm />}
+        />
+        <Route
+        path="/update-project-form/:id"
+        element={<UpdateProjectForm />}
         />
       </Routes>
     </div>

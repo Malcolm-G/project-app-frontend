@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ProjectRow from './ProjectRow';
 import { UserContext } from './UserDataProvider';
 
@@ -16,9 +17,14 @@ function MyProjects(props) {
         )
     })
 
+
+
     if(projects){
         return(
             <div>
+                <div className='container'>
+                    <Link to='/project-form' className='mx-auto'>Add New Project</Link>
+                </div>
                 <h2>Here are some of your projects</h2>
                 <table className="table table-bordered">
                     <thead>
@@ -28,6 +34,8 @@ function MyProjects(props) {
                             <th scope="col">Description</th>
                             <th scope="col">Created</th>
                             <th scope="col">Status</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>

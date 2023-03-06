@@ -21,7 +21,7 @@ function UserDataProvider({ children }) {
         }
     },[user])
     console.log(projects)
-    const value = [user, setUser,API,projects]
+    const value = [user, setUser,API,projects,setProjects]
     
     return (
         <UserContext.Provider value={value}>
