@@ -13,6 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Notable technologies used in this project include:
 - [React](https://reactjs.org/)
 
+The application also gets and stores data using an API built with Sinatra.  
 The API is made accessible by hosting it using [Render](https://render.com/), a hosting platform. The main API linkisas below:
 
         https://malcolm-p3-project-app.onrender.com/
