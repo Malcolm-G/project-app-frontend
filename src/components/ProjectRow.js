@@ -7,9 +7,19 @@ function ProjectRow({project,index}) {
     const [user,setUser,API,projects,setProjects] = useContext(UserContext)
     const [statusClass,setStatusClass] = useState('')
     const [newStatus,setNewStatus] = useState(`${project?.status}`)
+    const [members,setMembers] = useState([])
     const navigate = useNavigate()
 
     useEffect(()=>{
+
+        fetch(`${API}/project/${project?.id}/members`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            console.log(data)
+            setMembers(data)
+        })
+
+
         switch(project.status){
             case 'CREATED':
                 setStatusClass("badge bg-info")
@@ -28,6 +38,7 @@ function ProjectRow({project,index}) {
         }
     },[projects])
 
+    console.log(members)
     function updateProject(){
         navigate(`/update-project-form/${project.id}`)
     }
@@ -68,7 +79,7 @@ function ProjectRow({project,index}) {
         })
         .then(resp=>resp.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             if(data.message=='SUCCESS'){
                 const newProjects = projects?.filter((item) => item.id !== project.id);
                 setProjects(newProjects)
@@ -79,11 +90,16 @@ function ProjectRow({project,index}) {
         })
     }
 
+    const memberList = members.map((member,i,members)=>{
+        return i+1==members.length?<a>{member.username}</a>:<a>{`${member.username}, `}</a>
+    })
+
     return (
         <tr>
           <th scope="row">{index}</th>
           <td>{project.title}</td>
           <td>{project.description}</td>
+          <td>{memberList}</td>
           <td>{project.created_at}</td>
           <td>
             <span className={statusClass}>
