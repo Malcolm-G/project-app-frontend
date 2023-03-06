@@ -15,7 +15,7 @@ function UserDataProvider({ children }) {
             .then(resp=>resp.json())
             .then(data=>{
                 // console.log(...data)
-                setProjects((projects)=>data)
+                setProjects((projects)=>data.my_projects.concat(data.part_of))
                 // console.log(projects)
             })
         }

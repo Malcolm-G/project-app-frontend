@@ -10,6 +10,7 @@ function ProjectRow({project,index}) {
     const [members,setMembers] = useState([])
     const navigate = useNavigate()
 
+    console.log(user.id)
     useEffect(()=>{
 
         fetch(`${API}/project/${project?.id}/members`)
@@ -40,7 +41,12 @@ function ProjectRow({project,index}) {
 
     console.log(members)
     function updateProject(){
-        navigate(`/update-project-form/${project.id}`)
+        if(user.id!=project.project_owner_id){
+            window.alert('Only Project owners can update projects')
+        }
+        else{
+            navigate(`/update-project-form/${project.id}`)
+        }
     }
 
     function changeStatus(e){
@@ -91,7 +97,7 @@ function ProjectRow({project,index}) {
     }
 
     const memberList = members.map((member,i,members)=>{
-        return i+1==members.length?<a>{member.username}</a>:<a>{`${member.username}, `}</a>
+        return i+1==members.length?<a href='#' key={`memberlist-last-${index}`}>{member.username}</a>:<a href='#' key={`memberlist-${index}`}>{`${member.username}, `}</a>
     })
 
     return (
@@ -99,7 +105,7 @@ function ProjectRow({project,index}) {
           <th scope="row">{index}</th>
           <td>{project.title}</td>
           <td>{project.description}</td>
-          <td>{memberList}</td>
+          <td className={members.length>0?null:'text-danger'}>{members.length>0?memberList:'No Members'}</td>
           <td>{project.created_at}</td>
           <td>
             <span className={statusClass}>
@@ -136,8 +142,13 @@ function ProjectRow({project,index}) {
           <td>
             <button
             onClick={()=>{
-                if(window.confirm('Are you sure you wish to delete this project?')){
-                    deleteProject()
+                if(user.id!==project.project_owner_id){
+                    window.alert('Only Project owners can update projects')
+                }
+                else{
+                    if(window.confirm('Are you sure you wish to delete this project?')){
+                        deleteProject()
+                    }
                 }
             }}
             className='btn btn-danger btn-sm' >Delete</button>

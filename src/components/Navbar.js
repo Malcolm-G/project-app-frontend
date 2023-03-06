@@ -6,7 +6,7 @@ import { UserContext } from "./UserDataProvider";
 
 function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
 
-    const [user] = useContext(UserContext)
+    const [user,setUser,API,projects,setProjects] = useContext(UserContext)
 
     const ulClasses = user?'navbar-nav mx-auto mb-2 mb-lg-0 w-50':`navbar-nav mx-auto mb-2 mb-lg-0`;
     const navigate = useNavigate()
@@ -14,7 +14,8 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
     function nameClicked(){
         if(window.confirm('Do you wish to Sign out?')){
             navigate('/');
-            setIsLoggedIn(false);
+            setUser(null)
+            setProjects([])
         }
     }
 
@@ -33,7 +34,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
                             </li>:null}
                         </ul>
                     </div>
-                    {user?<input type='button' className="nav-link navbar-brand btn btn-link" value={user.username} /*onClick={nameClicked}*/ />:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
+                    {user?<input type='button' className="nav-link navbar-brand btn btn-link" value={user.username} onClick={nameClicked} />:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
                 </div>
             </nav>
     )

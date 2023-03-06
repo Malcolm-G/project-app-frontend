@@ -21,7 +21,7 @@ function MyProjects(props) {
 
     if(projects){
         return(
-            <div>
+            <div className='container'>
                 <div className='container'>
                     <Link to='/project-form' className='mx-auto'>Add New Project</Link>
                 </div>
