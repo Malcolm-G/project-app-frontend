@@ -28,7 +28,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className={ulClasses}>
+                        <ul className={`${ulClasses} justify-content-center`}>
                             {user?<li className="nav-item">
                                 <Link className="nav-link mx-5" aria-current="page" to="/my-projects">MY-PROJECTS</Link>
                             </li>:null}

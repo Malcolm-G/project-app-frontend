@@ -36,7 +36,7 @@ function ProjectForm(props) {
 
     return (
         <form onSubmit={(e)=>projectSubmit(e)} style={{border:"1px solid #ccc"}}>
-            <div className="container">
+            <div className="container bg-body-tertiary mt-5">
                 <h1>Project Details</h1>
                 <p>Please fill in this form to add a new project.</p>
                 <hr/>

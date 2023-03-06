@@ -1,0 +1,28 @@
+.landing-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #dad8dd;
+  }
+  
+  .landing-page-text {
+    text-align: center;
+    margin-right: 2rem;
+  }
+  
+  .landing-page-text h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .landing-page-text p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .landing-page-image {
+    height: 50vh;
+    object-fit: contain;
+  }
+  
