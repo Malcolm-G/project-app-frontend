@@ -79,8 +79,8 @@ function UpdateProjectForm(props) {
 
 
                 <div className="clearfix">
-                <button type="button" className=".log-cancelbtn" onClick={cancelClicked} >Cancel</button>
                 <button type="submit" className=".log-signupbtn">Update Project</button>
+                <button type="button" className=".log-cancelbtn bg-danger" onClick={cancelClicked} >Cancel</button>
                 </div>
             </div>
         </form>

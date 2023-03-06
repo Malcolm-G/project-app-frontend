@@ -24,13 +24,13 @@ function ProjectRow({project,index}) {
                 setStatusClass("badge bg-info")
             break;
             case 'ONGOING':
-                setStatusClass("badge bg-success") 
+                setStatusClass("badge bg-warning") 
             break;
             case 'CANCELLED':
-                setStatusClass("badge bg-primary")
+                setStatusClass("badge bg-danger")
             break;
             case 'COMPLETED':
-                setStatusClass("badge bg-warning")
+                setStatusClass("badge bg-success")
             break;
             default:
                 setStatusClass("badge bg-dark")
@@ -66,7 +66,6 @@ function ProjectRow({project,index}) {
                     }
                 });
                 setProjects(updatedProjects)
-                console.log(projects)
                 window.alert("Status Updated")
             }
             else{
@@ -94,11 +93,14 @@ function ProjectRow({project,index}) {
     }
 
     const memberList = members.map((member,i,members)=>{
-        return i+1==members.length?<a href='#' key={`memberlist-last-${i}`}>{member.username}</a>:<a href='#' key={`memberlist-${i}`}>{`${member.username}, `}</a>
+        // return i+1==members.length?<span href='#' key={`memberlist-last-${i}`} className='badge text-bg-dark'>{member.username}</span>:<span href='#' key={`memberlist-${i}`} className='badge text-bg-dark'>{`${member.username}, `}</span>
+        return (
+            <span key={`memberlist-${i}`} className='badge text-bg-dark mx-1'>{member.username}</span>
+        )
     })
 
     return (
-        <tr>
+        <tr className='align-middle'>
           <th scope="row">{index}</th>
           <td>{project.title}</td>
           <td>{project.description}</td>
@@ -110,7 +112,7 @@ function ProjectRow({project,index}) {
                 changeStatus(e)
             }}
             value={newStatus}
-            className={`${statusClass} border-0 `}
+            className={`${statusClass} border-0 text-dark`}
             name="status" id="status-dropdown">
                 <option value="CREATED" >CREATED</option>
                 <option value="ONGOING" >ONGOING</option>

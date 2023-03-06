@@ -61,8 +61,8 @@ function ProjectForm(props) {
 
 
                 <div className="clearfix">
-                <button type="button" className=".log-cancelbtn" onClick={cancelClicked} >Cancel</button>
                 <button type="submit" className=".log-signupbtn">Create Project</button>
+                <button type="button" className=".log-cancelbtn bg-danger" onClick={cancelClicked} >Cancel</button>
                 </div>
             </div>
         </form>

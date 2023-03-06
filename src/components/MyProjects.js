@@ -23,7 +23,7 @@ function MyProjects(props) {
         return(
             <div className='container mt-5 bg-body-tertiary'>
                 <div className='container'>
-                    <Link to='/project-form' className='mx-auto'>Add New Project</Link>
+                    <Link to='/project-form' className='mx-auto btn btn-outline-success'>Add New Project</Link>
                 </div>
                 <h2>Here are some of your projects</h2>
                 <table className="table table-bordered">

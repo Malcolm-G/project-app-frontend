@@ -2,6 +2,7 @@ import React,{ useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../../stylesheets/Login.css';
 import image from "../../images/download.png"
+import { BsPersonCircle } from 'react-icons/bs';
 import { UserContext } from "../UserDataProvider";
 // import image from "../../random-acts-kindness-day.png";
 
@@ -39,7 +40,8 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
         onSubmit={(e)=>loginClicked(e)}
          method="#">
             <div className="log-imgcontainer">
-                <img src={image} alt="Avatar" className="log-avatar"/>
+                {/* <img src={image} alt="Avatar" className="log-avatar"/> */}
+                <BsPersonCircle size={140} />
             </div>
 
             <div className="container login-container bg-body-tertiary">
@@ -62,7 +64,7 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
             </div>
 
             <div className="container  d-flex" style={{backgroundColor:"#f1f1f1"}}>
-                <Link type="login-button" className="btn cancelbtn mx-auto" to="/signup" >Register?</Link>
+                <Link type="login-button" className="btn log-cancelbtn mx-auto" to="/signup" >Register?</Link>
                 {/* <span className="psw">Forgot <a href="#">password?</a></span> */}
             </div>
         </form>

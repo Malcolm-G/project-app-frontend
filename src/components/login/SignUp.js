@@ -96,8 +96,8 @@ function SignUp({users,setUsers}){
                 <p>By creating an account you agree to our <a href="#" style={{color:"dodgerblue"}}>Terms & Privacy</a>.</p> */}
 
                 <div className="clearfix">
-                <button type="button" className=".log-cancelbtn" onClick={cancelClicked} >Cancel</button>
-                <button type="submit" className=".log-signupbtn">Sign Up</button>
+                <button type="button" className="log-cancelbtn" onClick={cancelClicked} >Cancel</button>
+                <button type="submit" className="log-signupbtn">Sign Up</button>
                 </div>
             </div>
         </form>
