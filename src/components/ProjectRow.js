@@ -104,32 +104,20 @@ function ProjectRow({project,index}) {
           <td>{project.description}</td>
           <td className={members.length>0?null:'text-danger'}>{members.length>0?memberList:'No Members'}</td>
           <td>{project.created_at}</td>
-          <td>
-            <span className={statusClass}>
-                {/* <div className='dropdown'>
-                    <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a className="dropdown-item" href="#">ONGOING</a></li>
-                        <li><a className="dropdown-item" href="#">CANCELLED</a></li>
-                        <li><a className="dropdown-item" href="#">COMPLETED</a></li>
-                    </ul>
-                </div> */}
-                <select onChange={(e)=>{
-                    setNewStatus(e.target.value)
-                    changeStatus(e)
-                }}
-                value={newStatus}
-                className={`${statusClass} border-0`}
-                name="status" id="status-dropdown">
-                    <option value="CREATED" >CREATED</option>
-                    <option value="ONGOING" >ONGOING</option>
-                    <option value="CANCELLED" >CANCELLED</option>
-                    <option value="COMPLETED" >COMPLETED</option>
-                </select>
-              {/* {project.status} */}
-            </span>
+          <td className=''>
+            <select onChange={(e)=>{
+                setNewStatus(e.target.value)
+                changeStatus(e)
+            }}
+            value={newStatus}
+            className={`${statusClass} border-0 `}
+            name="status" id="status-dropdown">
+                <option value="CREATED" >CREATED</option>
+                <option value="ONGOING" >ONGOING</option>
+                <option value="CANCELLED" >CANCELLED</option>
+                <option value="COMPLETED" >COMPLETED</option>
+            </select>
+            {/* {project.status} */}
           </td>
           <td>
             <button
