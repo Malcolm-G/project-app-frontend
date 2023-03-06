@@ -16,6 +16,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
             navigate('/');
             setUser(null)
             setProjects([])
+            localStorage.clear();
         }
     }
 

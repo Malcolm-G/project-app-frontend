@@ -24,8 +24,9 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
         .then(resp=>resp.json())
         .then(userData=>{
             setUser(user=>user = userData.data)
+            localStorage.setItem('user', JSON.stringify(userData.data))
             navigate('/')
-            console.log(user)
+            // console.log(user)
         })
     }
 

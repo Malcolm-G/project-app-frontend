@@ -10,13 +10,11 @@ function ProjectRow({project,index}) {
     const [members,setMembers] = useState([])
     const navigate = useNavigate()
 
-    console.log(user.id)
     useEffect(()=>{
 
         fetch(`${API}/project/${project?.id}/members`)
         .then(resp=>resp.json())
         .then(data=>{
-            console.log(data)
             setMembers(data)
         })
 
@@ -39,7 +37,6 @@ function ProjectRow({project,index}) {
         }
     },[projects])
 
-    console.log(members)
     function updateProject(){
         if(user.id!=project.project_owner_id){
             window.alert('Only Project owners can update projects')
@@ -97,7 +94,7 @@ function ProjectRow({project,index}) {
     }
 
     const memberList = members.map((member,i,members)=>{
-        return i+1==members.length?<a href='#' key={`memberlist-last-${index}`}>{member.username}</a>:<a href='#' key={`memberlist-${index}`}>{`${member.username}, `}</a>
+        return i+1==members.length?<a href='#' key={`memberlist-last-${i}`}>{member.username}</a>:<a href='#' key={`memberlist-${i}`}>{`${member.username}, `}</a>
     })
 
     return (

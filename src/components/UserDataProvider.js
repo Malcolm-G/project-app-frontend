@@ -10,6 +10,15 @@ function UserDataProvider({ children }) {
     const [user, setUser] = useState(null)
     const [projects, setProjects] = useState([])
 
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+        //   console.log(foundUser)
+          setUser(foundUser);
+        }
+    }, []);
+
     useEffect(()=>{
         if(user){
             fetch(`${API}/projects/${user.id}`)
@@ -21,7 +30,7 @@ function UserDataProvider({ children }) {
             })
         }
     },[user])
-    console.log(projects)
+    // console.log(projects)
     const value = [user, setUser,API,projects,setProjects]
     
     return (
