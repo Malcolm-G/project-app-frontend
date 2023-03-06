@@ -33,7 +33,7 @@ function Navbar({currentUser,isLoggedIn,setIsLoggedIn}){
                             </li>:null}
                         </ul>
                     </div>
-                    {user?<input type='button' className="nav-link navbar-brand btn btn-link" value={user.username} />:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
+                    {user?<input type='button' className="nav-link navbar-brand btn btn-link" value={user.username} /*onClick={nameClicked}*/ />:<Link className="nav-link navbar-brand" to="/login" >LOGIN</Link>}
                 </div>
             </nav>
     )

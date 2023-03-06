@@ -7,7 +7,7 @@ const API = 'http://127.0.0.1:9292'
 // create the context provider (component)
 function UserDataProvider({ children }) {
     const [user, setUser] = useState(null)
-    const [projects, setProjects] = useState({})
+    const [projects, setProjects] = useState([])
 
     useEffect(()=>{
         if(user){
@@ -20,8 +20,8 @@ function UserDataProvider({ children }) {
             })
         }
     },[user])
-    // console.log(projects)
-    const value = [user, setUser,API]
+    console.log(projects)
+    const value = [user, setUser,API,projects]
     
     return (
         <UserContext.Provider value={value}>
