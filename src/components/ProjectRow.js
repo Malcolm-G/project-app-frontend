@@ -62,6 +62,23 @@ function ProjectRow({project,index}) {
         })
     }
 
+    function deleteProject(){
+        fetch(`${API}//projects/destroy/${project.id}`,{
+            method:'DELETE'
+        })
+        .then(resp=>resp.json())
+        .then(data=>{
+            console.log(data)
+            if(data.message=='SUCCESS'){
+                const newProjects = projects?.filter((item) => item.id !== project.id);
+                setProjects(newProjects)
+            }
+            else{
+                window.alert("Error occured trying to delete project")
+            }
+        })
+    }
+
     return (
         <tr>
           <th scope="row">{index}</th>
@@ -85,7 +102,8 @@ function ProjectRow({project,index}) {
                     changeStatus(e)
                 }}
                 value={newStatus}
-                name="status" id="cars">
+                className={`${statusClass} border-0`}
+                name="status" id="status-dropdown">
                     <option value="CREATED" >CREATED</option>
                     <option value="ONGOING" >ONGOING</option>
                     <option value="CANCELLED" >CANCELLED</option>
@@ -100,7 +118,13 @@ function ProjectRow({project,index}) {
             className='btn btn-warning btn-sm' >Update</button>
           </td>
           <td>
-            <button className='btn btn-danger btn-sm' >Delete</button>
+            <button
+            onClick={()=>{
+                if(window.confirm('Are you sure you wish to delete this project?')){
+                    deleteProject()
+                }
+            }}
+            className='btn btn-danger btn-sm' >Delete</button>
           </td>
         </tr>
     );
