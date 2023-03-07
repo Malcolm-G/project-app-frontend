@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from './UserDataProvider';
 
 function ProjectRow({project,index}) {
-    console.log(project)
     let text = project.due;
     const myArray = text.split("T");
     let projectDue = myArray[0];
