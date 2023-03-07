@@ -57,7 +57,7 @@ function MyProjects(props) {
                             <p className="card-text">You have no projects created yet!</p>
                         </div>
                         <div className='container'>
-                            <Link to='/project-form' className='mx-auto'>Add New Project</Link>
+                            <Link to='/project-form' className='mx-auto btn btn-outline-success'>Add New Project</Link>
                         </div>
                     </div>
                 </div>
