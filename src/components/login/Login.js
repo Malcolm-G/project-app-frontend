@@ -24,7 +24,7 @@ function Login({users,setIsLoggedIn,setCurrentUser}){
         })
         .then(resp=>resp.json())
         .then(userData=>{
-            if(userData.code!=200){
+            if(userData.code==200){
                 setUser(user=>user = userData.data)
                 localStorage.setItem('user', JSON.stringify(userData.data))
                 navigate('/')
