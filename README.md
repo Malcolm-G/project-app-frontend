@@ -104,7 +104,7 @@ You now have the option **'MY-PROJECTS'** on the navbar. Click the option and yo
 
 You may click the **'Add Project'** button to create a new project. It shall direct you to a form:
 
-![Add Project Screenshot](src/images/my_projects_screenshot.png)
+![Add Project Screenshot](src/images/add_project_screenshot.png)
 
 You also have the options to update and delete projects that you own. The update and delete buttons are disbled if you are not the project owner. The update button shall direct you to a form that is prepopulated with the data that is currently tied to the project. You may change any field to update the project.
 
