@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from './UserDataProvider';
 
 function ProjectRow({project,index}) {
+    const [user,setUser,API,projects,setProjects] = useContext(UserContext)
+
     let text = project.due;
     const myArray = text.split("T");
     let projectDue = myArray[0];
 
-    const [user,setUser,API,projects,setProjects] = useContext(UserContext)
+    const isOwner = project.project_owner_id == user.id
+    
     const [statusClass,setStatusClass] = useState('')
     const [newStatus,setNewStatus] = useState(`${project?.status}`)
     const [members,setMembers] = useState([])
@@ -127,7 +130,8 @@ function ProjectRow({project,index}) {
           <td>
             <button
             onClick={updateProject}
-            className='btn btn-warning btn-sm' >Update</button>
+            className='btn btn-warning btn-sm'
+            disabled={isOwner?false:true}  >Update</button>
           </td>
           <td>
             <button
@@ -141,7 +145,8 @@ function ProjectRow({project,index}) {
                     }
                 }
             }}
-            className='btn btn-danger btn-sm' >Delete</button>
+            className='btn btn-danger btn-sm'
+            disabled={isOwner?false:true} >Delete</button>
           </td>
         </tr>
     );
