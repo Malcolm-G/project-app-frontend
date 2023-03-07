@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from './UserDataProvider';
 
 function ProjectRow({project,index}) {
+    console.log(project)
+    let text = project.due;
+    const myArray = text.split("T");
+    let projectDue = myArray[0];
 
     const [user,setUser,API,projects,setProjects] = useContext(UserContext)
     const [statusClass,setStatusClass] = useState('')
@@ -105,7 +109,7 @@ function ProjectRow({project,index}) {
           <td>{project.title}</td>
           <td>{project.description}</td>
           <td className={members.length>0?null:'text-danger'}>{members.length>0?memberList:'No Members'}</td>
-          <td>{project.created_at}</td>
+          <td>{projectDue}</td>
           <td className=''>
             <select onChange={(e)=>{
                 setNewStatus(e.target.value)

@@ -7,9 +7,13 @@ function UpdateProjectForm(props) {
     const [user,setUser,API,projects,setProjects] = useContext(UserContext)
 
     let projectUpdating = projects?.find(element=>element.id==params.id)
+    let text = projectUpdating?.due;
+    const myArray = text.split("T");
+    let projectDue = myArray[0];
+    
     const [title,setTitle] = useState(`${projectUpdating?.title}`)
     const [description,setDescription] = useState(`${projectUpdating?.description}`)
-    const [due,setDue] = useState(`${projectUpdating?.due}`)
+    const [due,setDue] = useState(`${projectDue}`)
     const navigate = useNavigate()
 
     const input={title:title,description:description,due:due}
