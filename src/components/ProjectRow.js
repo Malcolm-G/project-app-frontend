@@ -21,7 +21,6 @@ function ProjectRow({project,index}) {
         fetch(`${API}/project/${project?.id}/members`)
         .then(resp=>resp.json())
         .then(data=>{
-            console.log(data)
             setMembers(data)
         })
 
