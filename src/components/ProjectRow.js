@@ -21,6 +21,7 @@ function ProjectRow({project,index}) {
         fetch(`${API}/project/${project?.id}/members`)
         .then(resp=>resp.json())
         .then(data=>{
+            console.log(data)
             setMembers(data)
         })
 
@@ -39,9 +40,9 @@ function ProjectRow({project,index}) {
                 setStatusClass("badge bg-success")
             break;
             default:
-                setStatusClass("badge bg-dark")
+                setStatusClass("badge")
         }
-    },[projects])
+    },[])
 
     function updateProject(){
         if(user.id!=project.project_owner_id){

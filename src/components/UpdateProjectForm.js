@@ -33,16 +33,17 @@ function UpdateProjectForm(props) {
             if(data.message=='SUCCESS'){
                 const updatedProjects = projects?.map((item) => {
                     if (item.id == params.id) {
-                      return {
-                        item,
+                      return ({
+                        ...item,
                         ...input
-                      };
+                      });
                     } else {
                       return item;
                     }
                 });
-                setProjects((projects=>updatedProjects))
-                console.log(projects)
+                console.log(updatedProjects)
+                // setProjects(updatedProjects)
+                // console.log(projects)
                 window.alert("Project Updated")
                 navigate("/my-projects");
             }
